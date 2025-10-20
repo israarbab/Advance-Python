@@ -1,48 +1,23 @@
-import pygame
-import sys
+# Define a class for Robot
+class Robot:
+    # Constructor to initialize robot name and model
+    def __init__(self, name, model):
+        self.name = name
+        self.model = model
 
-# Initialize Pygame
-pygame.init()
+    # Method to introduce the robot
+    def introduce(self):
+        print(f"Hello! I am {self.name}, your friendly robot assistant.")
+        print(f"I am a {self.model} model robot designed by Isra.\n")
 
-# Screen settings
-screen = pygame.display.set_mode((800, 600))
-pygame.display.set_caption('Simple Robot Simulation')
 
-# Colors
-WHITE = (255, 255, 255)
-RED = (255, 0, 0)
+# --- Main Program ---
 
-# Robot settings
-robot_pos = [400, 300]
-robot_size = 50
-robot_speed = 5
+# Creating objects for Harsh's robots
+robot1 = Robot("Tom", "Helper-X1")
+robot2 = Robot("Jerry", "Companion-Z2")
 
-# Main loop
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT]:
-        robot_pos[0] -= robot_speed
-    if keys[pygame.K_RIGHT]:
-        robot_pos[0] += robot_speed
-    if keys[pygame.K_UP]:
-        robot_pos[1] -= robot_speed
-    if keys[pygame.K_DOWN]:
-        robot_pos[1] += robot_speed
-
-    # Clear screen
-    screen.fill(WHITE)
-
-    # Draw robot (a simple rectangle)
-    pygame.draw.rect(screen, RED, (*robot_pos, robot_size, robot_size))
-
-    # Update display
-    pygame.display.flip()
-
-    # Cap the frame rate
-    pygame.time.Clock().tick(30)
+# Introducing the robots
+print("🤖 Harsh's Robots are ready to introduce themselves!\n")
+robot1.introduce()
+robot2.introduce()
